@@ -16,6 +16,8 @@
     "typescript": "^5.3.3"
   },
   "devDependencies": {
+    "@iconify-json/fa-solid": "^1.1.8",
+    "@iconify-json/game-icons": "^1.1.7",
     "@iconify-json/mdi": "^1.1.64"
   }
 }

@@ -1,0 +1,112 @@
+---
+import { Image } from "astro:assets";
+import lazy from "../assets/Lazy.jpg";
+---
+
+<section class="hero">
+    <div class="hero-text">
+        <p class="greeting">Hi, ich bin</p>
+        <h2>Isabell Oehme</h2>
+        <h3>Crazy Cat Lady</h3>
+        <p>
+            Leidenschaftlicher Beibringer von Wissen und Programmierer. In
+            meiner Welt verschmelzen Technologie und Bildung zu einzigartigen
+            Erlebnissen. Stets auf der Suche nach neuen Herausforderungen und
+            Wegen, um Wissen spielerisch zu vermitteln.
+        </p>
+    </div>
+    <div class="hero-image">
+        <Image
+            src={lazy}
+            alt="Ich, einfach unverbesserlich."
+            id={"lazy-image"}
+        />
+    </div>
+</section>
+
+<style>
+    section.hero {
+        margin-bottom: 4rem;
+        display: flex;
+        flex-direction: row;
+        height: 90vh;
+        overflow-y: hidden;
+    }
+
+    section.hero > div.hero-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 50vw;
+        margin: 0 5vw 0 auto;
+        position: relative;
+        z-index: -2;
+    }
+    div.hero-text > h1 {
+        margin-top: 0;
+        color: green;
+        font-size: 1.1em;
+    }
+
+    section.hero > div.hero-image {
+        width: 50vw;
+        position: relative;
+        z-index: 10;
+    }
+    .hero-text > * {
+        text-align: center;
+    }
+    .hero-text > :not(:last-child) {
+        line-height: 100%;
+    }
+    .hero-text > p.greeting {
+        font-size: 1.3em;
+        color: yellowgreen;
+        margin: 0;
+    }
+    .hero-text > h2 {
+        color: green;
+        margin-top: 0.5rem;
+        font-size: 3em;
+        font-weight: 800;
+        margin: 0.5rem 0 1.4rem 0;
+    }
+    .hero-text > h3 {
+        color: yellowgreen;
+        font-size: 1.4em;
+        font-weight: 600;
+        margin-top: 1rem;
+        margin: 0 0 1rem 0;
+    }
+    .hero-text p {
+        max-width: 45ch;
+        color: bisque;
+    }
+    .hero-image > #lazy-image {
+        object-fit: cover;
+        height: 100%;
+        overflow-x: hidden;
+        width: 100%;
+        border-radius: 2rem;
+        box-shadow: 5px 5px 10px green;
+    }
+    @media only screen and (max-width: 900px) {
+        section.hero {
+            flex-direction: column;
+            font-size: .9em;
+        }
+        section.hero > div.hero-text {
+            max-width: none;
+            margin: 0 1rem;
+            position: static;
+        }
+        section.hero > div.hero-image {
+            width: 100%;
+            position: static;
+        }
+        .hero-text p {
+            width: 100%;
+            max-width: none;
+        }
+    }
+</style>

@@ -1,0 +1,52 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<footer>
+    <h2>Animals.de</h2>
+    <ul>
+        <li><a href="">Cat</a></li>
+        <li><a href="">Snail</a></li>
+        <li><a href="">Fox</a></li>
+    </ul>
+    <ul>
+        <li><a href=""><Icon name="fa-solid:cat" /></a></li>
+
+        <style>
+            footer {
+                position: block;
+                width: 100%;
+                color: yellowgreen;
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                text-align: center;
+                margin-top: 10px;
+            }
+
+            footer ul {
+                list-style: none;
+                margin: 20px;
+                padding: 0;
+            }
+            footer ul > li {
+                display: inline;
+                padding-inline: 10px 10px;
+            }
+            footer a {
+                text-decoration: none;
+                color: yellowgreen;
+                transition: color 0.3s ease;
+            }
+            footer a:hover {
+                color: bisque;
+            }
+            html.light footer a {
+                text-shadow: 0 0 4px green;
+            }
+            html.light footer [data-icon] {
+                /* filter: drop-shadow(0 0 4px black); */
+                stroke: rgba(0, 0, 0, 0.7);
+                font-size: 1.4em;
+            }
+        </style>
+    </ul>
+</footer>
