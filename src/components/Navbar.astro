@@ -91,12 +91,13 @@ import { Icon } from "astro-icon/components";
     align-items: center;
   }
   [data-icon] {
-    width: 50px;
+    width: 60px;
     height: auto;
   }
   [data-icon="game-icons:cat"] {
-    width: 50px;
+    width: 60px;
     height: auto;
+    color: yellowgreen;
   }
   html.light [data-icon="game-icons:cat"]{
     color: green;
@@ -104,18 +105,18 @@ import { Icon } from "astro-icon/components";
   nav {
     display: flex;
     flex-direction: row;
-    color: yellowgreen;
+    color: green;
     justify-content: space-between;
     align-items: center;
-    max-height: 10vh;
+    max-height: 30vh;
   }
   nav ul {
     list-style-type: none;
     padding-left: 0;
     display: flex;
     flex-direction: row;
-    gap: 1rem;
-    font-size: 1.2em;
+    gap: 10rem;
+    font-size: 1.5em;
   }
   nav ul li a {
     color: yellowgreen;
@@ -128,21 +129,21 @@ import { Icon } from "astro-icon/components";
       "slnt" 0;
   }
   nav ul li a:hover {
-    text-shadow: 0px 0px 15px green;
+    text-shadow: 0px 0px 10px green;
     color: bisque;
     font-variation-settings:
       "wght" 500,
       "wdth" 105,
-      "slnt" -11;
+      "slnt" -15;
   }
   nav ul li a {
-    color: yellowgreen;
+    color: green;
     text-decoration: none;
     transition: all 0.5s ease;
     font-family: MonaspaceXenonVar;
     font-variation-settings:
-      "wght" 100,
-      "wdth" 100,
+      "wght" 350,
+      "wdth" 105,
       "slnt" 0;
   }
   nav button.theme-switch {

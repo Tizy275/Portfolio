@@ -1,39 +1,32 @@
 ---
 import { Image } from "astro:assets";
-import lazy from "../assets/Lazy.jpg";
+import ich from "../assets/Me.jpg";
 ---
 
 <section class="hero">
+    <div class="hero-image">
+        <Image src={ich} alt="CrazyCatLady" id={"ich-image"} />
+    </div>
     <div class="hero-text">
         <p class="greeting">Hi, ich bin</p>
         <h2>Isabell Oehme</h2>
         <h3>Crazy Cat Lady</h3>
         <p>
-            Leidenschaftlicher Beibringer von Wissen und Programmierer. In
-            meiner Welt verschmelzen Technologie und Bildung zu einzigartigen
-            Erlebnissen. Stets auf der Suche nach neuen Herausforderungen und
-            Wegen, um Wissen spielerisch zu vermitteln.
+           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque aliquam beatae alias, totam atque quidem repudiandae reiciendis itaque velit optio. Aliquam at nam fuga laudantium voluptatibus odio, odit eum obcaecati culpa tempora ea nemo consectetur nihil natus provident expedita quia nulla reprehenderit consequatur possimus, facilis sed atque. Ipsa atque hic sit ad doloremque, porro velit nostrum. Quidem delectus quod aspernatur dicta provident minus fuga magni ex. Voluptate quasi suscipit sed.
         </p>
-    </div>
-    <div class="hero-image">
-        <Image
-            src={lazy}
-            alt="Ich, einfach unverbesserlich."
-            id={"lazy-image"}
-        />
     </div>
 </section>
 
 <style>
     section.hero {
+        margin-top: 4rem;
         margin-bottom: 4rem;
         display: flex;
         flex-direction: row;
-        height: 90vh;
+        height: 70vh;
         overflow-y: hidden;
     }
-
-    section.hero > div.hero-text {
+    section.hero > div.hero-image {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -42,16 +35,28 @@ import lazy from "../assets/Lazy.jpg";
         position: relative;
         z-index: -2;
     }
+    section.hero > div.hero-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 50vw;
+        margin: 0 5vw 0 auto;
+        position: relative;
+        z-index: 10;
+    }
     div.hero-text > h1 {
         margin-top: 0;
         color: green;
         font-size: 1.1em;
     }
 
-    section.hero > div.hero-image {
-        width: 50vw;
-        position: relative;
-        z-index: 10;
+    .hero-image > #ich-image {
+        object-fit: cover;
+        height: 100%;
+        overflow-x: hidden;
+        width: 100%;
+        border-radius: 4rem;
+        box-shadow: 10px 5px 5px rgb(35, 95, 35);
     }
     .hero-text > * {
         text-align: center;
@@ -82,26 +87,19 @@ import lazy from "../assets/Lazy.jpg";
         max-width: 45ch;
         color: bisque;
     }
-    .hero-image > #lazy-image {
-        object-fit: cover;
-        height: 100%;
-        overflow-x: hidden;
-        width: 100%;
-        border-radius: 2rem;
-        box-shadow: 5px 5px 10px green;
-    }
     @media only screen and (max-width: 900px) {
         section.hero {
             flex-direction: column;
-            font-size: .9em;
-        }
-        section.hero > div.hero-text {
-            max-width: none;
-            margin: 0 1rem;
-            position: static;
+            font-size: 0.9em;
         }
         section.hero > div.hero-image {
+            margin: 0 1rem;
             width: 100%;
+            position: static;
+        }
+        section.hero > div.hero-text {
+            margin: 0 1rem;
+            max-width: none;
             position: static;
         }
         .hero-text p {

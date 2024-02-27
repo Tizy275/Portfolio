@@ -1,34 +1,91 @@
 ---
-interface Props {
+interface Props {}
 
-}
+const langs = [
+    {
+        lang: "ger",
+        label: "Deutsch",
+    },
+    {
+        lang: "eng",
+        label: "English",
+    },
+    {
+        lang: "esp",
+        label: "Spanish",
+    },
+];
 ---
 
-<div class="outer-box">
-    <select name="lang" id="lang">
-        <option value="ger-de" label="Deutsch" /> 
-        <option value="eng-us" label="Englisch" />
-    </select>
-    <div class="inner-box">
-        <p data-fact class="fact">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero maiores sequi officia voluptates, veniam sapiente ab harum excepturi dolores, alias, et perspiciatis cupiditate aspernatur.
-        </p>
-
+<div class="fact-box">
+    <div class="outer-box">
+        <select data-select-lang name="lang" id="lang">
+            {
+                langs.map((entry) => (
+                    <option value={entry.lang} label={entry.label} />
+                ))
+            }
+        </select>
+        <div class="inner-box">
+            <p data-fact class="fact">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero
+                maiores sequi officia voluptates, veniam sapiente ab harum
+                excepturi dolores, alias, et perspiciatis cupiditate aspernatur.
+            </p>
+        </div>
     </div>
-    <button>Cat Facts</button>
+    <button data-submit-fact>Coole Cat Facts</button>
 </div>
 
+<script defer>
+    const submitFactBtnElem = document.querySelector("[data-submit-fact]");
+    const factTextElem = document.querySelector("[data-fact]");
+    const selectLangElem = document.querySelector("[data-select-lang]");
+
+    submitFactBtnElem.addEventListener("click", () => {
+        const baseUrl = "https://meowfacts.herokuapp.com/?lang=";
+        const url = baseUrl + selectLangElem.value;
+
+        fetch(url)
+            .then((httpResponse) => {
+                return httpResponse.json();
+            })
+            .then((jsonData) => {
+                factTextElem.innerHTML = jsonData.data[0];
+            });
+    });
+</script>
 <style>
+    .fact-box {
+        display: flex;
+        flex-direction: column;
+        color: rgb(25, 25, 25);
+    }
+    .fact-box > button {
+        align-self: stretch;
+        font-size: 1.5em;
+        padding: 1rem 0;
+        background-color: rgba(225, 228, 196, 0.9);
+        border: 2px solid rgb(25, 25, 25);
+        border-radius: 0 0 1rem 1rem;
+        color: rgb(25, 25, 25);
+        text-shadow: rgb(25, 25, 25);
+    }
     .outer-box {
         display: flex;
         flex-direction: column;
-        align-items: start;
         padding: 2rem;
-        background-color: green;
+        background-color: rgba(0, 128, 0, 0.7);
+        border-radius: 1rem 1rem 0 0;
+    }
+    .outer-box > select {
+        align-self: start;
     }
     .inner-box {
         padding: 1.5rem;
         margin: 1rem 0;
-        background-color: beige;
+        background-color: rgba(25, 25, 25, 0.9);
+        border-radius: 0.5rem;
+        color: rgb(225, 228, 196);
     }
 </style>
